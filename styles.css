@@ -1,0 +1,121 @@
+body {
+     background: white;
+     font-size: 20px;
+     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+     font-weight: lighter;
+     text-align: center;
+     padding: 40px;
+     color: 333;
+     ~webkit-font-smoothing: antialiased;
+     text-rendering: optimizelegibility;
+}
+
+#container {
+     margin-top: 20px;
+     margin-left: 200px;
+     margin-right: 200px;
+     
+     padding: 10px 150px 10px 150px;
+     border-radius: 15px;
+     background: gray;
+     text-align: left;
+}
+
+#content-contact {
+     background: url('images/transparent_white.png') top left repeat;
+     padding: 5px 20px 20px 20px;
+     margin: 20px 0;
+     border-radius: 15px;
+}
+
+#content-summary {
+     background: url('images/transparent_white.png') top left repeat;
+     padding: 5px 20px 20px;
+     margin: 20px 0;
+     border-radius: 15px;
+}
+
+#content-professional {
+     font-size: 42px;
+
+     background: url('images/transparent_white.png') top left repeat;
+     padding: 20px;
+     margin: 20px 0 10px;
+     border-radius: 15px;
+}
+
+h1 {
+     font-size: 55px;
+     line-height: .8;
+}
+
+h2 {
+     font-size: 18px;
+     line-height: .7;
+     margin-bottom: -6px;
+     }
+
+h3 {
+     font-size: 26px;
+     margin-bottom: -10px;
+}
+
+h4 {
+     font-size: 22px;
+     margin-bottom: -10px;
+}
+
+li {
+     font-size: 18px;
+     text-align: left;
+}
+
+p {
+     display: block;
+     -webkit-margin-before: 1em;
+     -webkit-margin-after: 1em;
+     -webkit-margin-start: 0px;
+     -webkit-margin-end: 0px;
+}
+
+#right {
+     float: right;
+     margin-top: 20px;
+     margin-left: 10px;
+     margin-right: 10px;
+     
+     height: 2500px;
+     width: 150px;
+     
+     padding: 10px 5px 10px 5px;
+     border-radius: 15px;
+     background: gray;
+     text-align: left;
+}
+
+#left {
+     float: left;
+     margin-top: 20px;
+     margin-left: 10px;
+     margin-right: 10px;
+     
+     height: 2500px;
+     width: 150px;
+     
+     padding: 10px 5px 10px 5px;
+     border-radius: 15px;
+     background: gray;
+     text-align: left;
+}
+
+a img {
+     margin: 20px;
+}
+
+#container img {
+     margin-top: 10px;
+     padding: 40px;
+     height: 200px;
+     width: 150px;
+     float: right;
+}
