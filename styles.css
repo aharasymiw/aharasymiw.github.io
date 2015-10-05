@@ -1,121 +1,163 @@
+/* Colors
+Green: #72AB00
+Grey: #9A9A9A
+*/
+
+/* Page Wide Styles */
 body {
-     background: white;
-     font-size: 20px;
-     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-     font-weight: lighter;
-     text-align: center;
-     padding: 40px;
-     color: 333;
-     ~webkit-font-smoothing: antialiased;
-     text-rendering: optimizelegibility;
+     font-family: Arial, Helvetica, sans-serif;
 }
 
-#container {
-     margin-top: 20px;
-     margin-left: 200px;
-     margin-right: 200px;
-     
-     padding: 10px 150px 10px 150px;
-     border-radius: 15px;
-     background: gray;
-     text-align: left;
+nav ul li {
+     display: inline;
 }
 
-#content-contact {
-     background: url('https://cloud.githubusercontent.com/assets/9385810/8391064/bb373ba2-1c77-11e5-8d68-d5aba5ba550a.png') top left repeat;
-     padding: 5px 20px 20px 20px;
-     margin: 20px 0;
-     border-radius: 15px;
+ol, ul {
+     padding: 0px;
 }
 
-#content-summary {
-     background: url('https://cloud.githubusercontent.com/assets/9385810/8391064/bb373ba2-1c77-11e5-8d68-d5aba5ba550a.png') top left repeat;
-     padding: 5px 20px 20px;
-     margin: 20px 0;
-     border-radius: 15px;
+/* Header Styles */
+header {
+     background-color: black;
+     clear: right;
 }
 
-#content-professional {
-     font-size: 42px;
-
-     background: url('https://cloud.githubusercontent.com/assets/9385810/8391064/bb373ba2-1c77-11e5-8d68-d5aba5ba550a.png') top left repeat;
-     padding: 20px;
-     margin: 20px 0 10px;
-     border-radius: 15px;
+header h1 {
+     display: inline;
+     position: relative;
+     top: 30px;
 }
 
-h1 {
-     font-size: 55px;
-     line-height: .8;
+header .FirstName {
+     color: #72AB00;
+     margin-left: 170px;
 }
 
-h2 {
-     font-size: 18px;
-     line-height: .7;
-     margin-bottom: -6px;
-     }
-
-h3 {
-     font-size: 26px;
-     margin-bottom: -10px;
+header .LastName {
+     color: #9A9A9A;
 }
 
-h4 {
-     font-size: 22px;
-     margin-bottom: -10px;
+header h2 {
+     color: #72AB00;
+     margin-top: 40px;
+     margin-left: 170px;
+     padding-bottom: 30px;
 }
 
-li {
-     font-size: 18px;
-     text-align: left;
-}
-
-p {
-     display: block;
-     -webkit-margin-before: 1em;
-     -webkit-margin-after: 1em;
-     -webkit-margin-start: 0px;
-     -webkit-margin-end: 0px;
-}
-
-#right {
+header nav {
      float: right;
-     margin-top: 20px;
-     margin-left: 10px;
-     margin-right: 10px;
-     
-     height: 2500px;
-     width: 150px;
-     
-     padding: 10px 5px 10px 5px;
-     border-radius: 15px;
-     background: gray;
-     text-align: left;
+     text-transform: uppercase;
+     position: relative;
+     top: 70px;
+     right: 180px;
 }
 
-#left {
-     float: left;
-     margin-top: 20px;
-     margin-left: 10px;
-     margin-right: 10px;
-     
-     height: 2500px;
-     width: 150px;
-     
-     padding: 10px 5px 10px 5px;
-     border-radius: 15px;
-     background: gray;
-     text-align: left;
+header a:link {
+     color: #9A9A9A;
+     text-decoration: none;
+     box-shadow: inset 0px 2px #9A9A9A;
+     padding: 5px;
 }
 
-a img {
-     margin: 20px;
+header a:visited {
+     color: #9A9A9A;
+     text-decoration: none;
 }
 
-#container img {
-     margin-top: 10px;
-     padding: 40px;
-     height: 200px;
-     width: 150px;
+header a:hover {
+     color: #72AB00;
+     box-shadow: inset 0px 4px #72AB00;
+     padding: 5px;
+
+}
+
+header a:active {
+     color: #72AB00;
+     text-decoration: none;
+}
+
+/* Article Styles */
+
+article {
+     clear: right;
+}
+
+.Contact {
+     clear: right;
+     width: 919px;
+     height: 364px;
+     border-radius: 5px;
+     background-color: #F6F6F6;
+     margin: 0px auto;
+     border: 1px solid #9A9A9A;
+     padding-left: 50px;
+     box-sizing: padding-box;
+}
+
+.Contact img {
+     padding: 40px 50px 0 0;
+     margin: auto, 0px;
      float: right;
+     width: 228px;
+     height: 289px;
+}
+
+.Contact h1 {
+     color: #72AB00;
+}
+
+section {
+     width: 700px;
+     margin-left: 170px;
+}
+
+section h2 {
+     box-shadow: 0px 1px #9A9A9A;
+}
+
+section ol {
+     list-style: none;
+}
+
+.Strengths {
+     margin-left: 0px;
+     float: right;
+     position: relative;
+     left: 250px;
+     top: 20px;
+}
+
+.Strengths h3 {
+     display: inline;
+     color: #72AB00;
+     box-shadow: 0px 1px #9A9A9A;
+     margin-bottom: 0px;
+}
+
+.Strengths ul {
+     list-style: none;
+}
+
+.Professional {
+
+}
+
+.Experience  h3, .Education h3 {
+     color: #72AB00;
+}
+
+/* Footer Styles */
+
+footer {
+     box-shadow: inset 0px 1px #9A9A9A;
+     position: relative;
+}
+
+footer p {
+     padding-top: 20px;
+}
+footer nav {
+     position: relative;
+     left: 900px;
+     top: -35px;
 }
