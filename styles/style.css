@@ -1,9 +1,4 @@
-/* Colors
-Green: #72AB00
-Grey: #9A9A9A
-*/
-
-/* Page Wide Styles */
+/* Site Wide Styles */
 body {
      font-family: Arial, Helvetica, sans-serif;
 }
@@ -12,7 +7,8 @@ nav ul li {
      display: inline;
 }
 
-ol, ul {
+ol,
+ul {
      padding: 0px;
 }
 
@@ -138,11 +134,10 @@ section ol {
      list-style: none;
 }
 
-.Professional {
+.Professional {}
 
-}
-
-.Experience  h3, .Education h3 {
+.Experience h3,
+.Education h3 {
      color: #72AB00;
 }
 
@@ -156,8 +151,18 @@ footer {
 footer p {
      padding-top: 20px;
 }
+
 footer nav {
      position: relative;
      left: 900px;
      top: -35px;
+}
+
+footer a:link {
+     text-decoration: none;
+}
+
+.social-image {
+     height: 20px;
+     width: 20px;
 }
