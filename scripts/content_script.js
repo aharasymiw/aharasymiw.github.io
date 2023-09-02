@@ -52,6 +52,12 @@ function addFooter() {
                     </a>
                 </li>
                 <li>
+                    <a href="https://hachyderm.io/@aharasymiw" rel="me" class=".image-link">
+                        <img class=".social-image" src="../images/mastadon_logo.svg"
+                                alt="Mastadon Logo, and link to https://hachyderm.io/@aharasymiw on Mastadon." height="20" width="20">
+                    </a>
+                </li>
+                <li>
                     <a href="mailto:aharasymiw@gmail.com" class=".image-link">
                         <img class=".social-image" src="../images/email_icon.svg"
                                 alt="Email icon, and link to send an email." height="20" width="20">
