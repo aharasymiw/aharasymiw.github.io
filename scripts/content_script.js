@@ -53,7 +53,7 @@ function addFooter() {
                 </li>
                 <li>
                     <a href="https://hachyderm.io/@aharasymiw" rel="me" class=".image-link">
-                        <img class=".social-image" src="../images/mastadon_logo.svg"
+                        <img class=".social-image" src="../images/mastodon_logo.svg"
                                 alt="Mastadon Logo, and link to https://hachyderm.io/@aharasymiw on Mastadon." height="20" width="20">
                     </a>
                 </li>
