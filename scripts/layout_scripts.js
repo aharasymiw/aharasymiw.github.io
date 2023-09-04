@@ -42,10 +42,7 @@ function addFooter(imagePathPrefix) {
                     </a>
                 </li>
                 <li>
-                    <a href="https://hachyderm.io/@aharasymiw" rel="me" target="_blank">
-                        <img class=".social-image" src="${imagePathPrefix}images/mastodon_logo.svg"
-                                alt="Mastodon Logo, and link to https://hachyderm.io/@aharasymiw on Mastodon." height="20" width="20">
-                    </a>
+                    <a rel="me" href="https://hachyderm.io/@aharasymiw">M</a>
                 </li>
                 <li>
                     <a href="mailto:aharasymiw@gmail.com" target="_blank">
@@ -56,6 +53,11 @@ function addFooter(imagePathPrefix) {
             </ul>
         </nav>
         `
+
+    //     <a href="https://hachyderm.io/@aharasymiw" rel="me" target="_blank">
+    //     <img class=".social-image" src="${imagePathPrefix}images/mastodon_logo.svg"
+    //             alt="Mastodon Logo, and link to https://hachyderm.io/@aharasymiw on Mastodon." height="20" width="20">
+    // </a>
 
     $('footer').append(navHtmlString);
 
