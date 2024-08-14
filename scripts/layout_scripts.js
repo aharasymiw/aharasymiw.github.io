@@ -31,25 +31,25 @@ function addFooter(imagePathPrefix) {
             <ul>
                 <li>
                     <a href="https://github.com/aharasymiw" target="_blank">
-                        <img class=".social-image" src="${imagePathPrefix}images/github_logo.svg"
+                        <img class=".social-image" src="${imagePathPrefix}images/icons/github_logo.svg"
                                 alt="Github Logo, and link to github." height="20" width="20">
                     </a>
                 </li>
                 <li>
                     <a href="https://www.linkedin.com/in/aharasymiw" target="_blank">
-                        <img class=".social-image" src="${imagePathPrefix}images/linkedin_logo.svg"
+                        <img class=".social-image" src="${imagePathPrefix}images/icons/linkedin_logo.svg"
                                 alt="LinkedIn Logo, and link to LinkedIn." height="20" width="20">
                     </a>
                 </li>
                 <li>
                     <a href="https://hachyderm.io/@aharasymiw" rel="me" target="_blank">
-                        <img class=".social-image" src="${imagePathPrefix}images/mastodon_logo.svg"
+                        <img class=".social-image" src="${imagePathPrefix}images/icons/mastodon_logo.svg"
                             alt="Mastodon Logo, and link to https://hachyderm.io/@aharasymiw on Mastodon." height="20" width="20">
                     </a>
                 </li>
                 <li>
                     <a href="mailto:aharasymiw@gmail.com" target="_blank">
-                        <img class=".social-image" src="${imagePathPrefix}images/email_icon.svg"
+                        <img class=".social-image" src="${imagePathPrefix}images/icons/email_icon.svg"
                                 alt="Email icon, and link to send an email." height="20" width="20">
                     </a>
                 </li>
