@@ -16,7 +16,7 @@ export function GravySnail({ idleTimeout = 60000 }: GravySnailProps) {
   const [chaosItems, setChaosItems] = useState<Array<{ id: number; glyph: string; left: string; bottom: string; rotate: string }>>([])
   const chaosId = useRef(0)
   const snailRef = useRef<HTMLDivElement>(null)
-  const intervalRef = useRef<ReturnType<typeof setInterval>>()
+  const intervalRef = useRef<ReturnType<typeof setInterval>>(undefined)
 
   useEffect(() => {
     if (idle && !active && !melting) {

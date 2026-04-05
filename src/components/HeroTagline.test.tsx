@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
 import { HeroTagline } from './HeroTagline'
 
-const cards = [
-  { label: 'Who I am', color: 'green' as const, content: 'Developer advocate' },
-  { label: 'What I do', color: 'warm' as const, content: 'Teach and build' },
-  { label: 'How I help', color: 'playful' as const, content: 'DevRel and talks' },
+const cards: [{ label: string; color: 'green'; content: string }, { label: string; color: 'warm'; content: string }, { label: string; color: 'playful'; content: string }] = [
+  { label: 'Who I am', color: 'green', content: 'Developer advocate' },
+  { label: 'What I do', color: 'warm', content: 'Teach and build' },
+  { label: 'How I help', color: 'playful', content: 'DevRel and talks' },
 ]
 
 describe('HeroTagline', () => {

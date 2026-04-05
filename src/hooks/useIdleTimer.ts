@@ -1,11 +1,7 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 
 export function useIdleTimer(timeout: number): boolean {
   const [idle, setIdle] = useState(false)
-
-  const reset = useCallback(() => {
-    setIdle(false)
-  }, [])
 
   useEffect(() => {
     let timer = setTimeout(() => setIdle(true), timeout)

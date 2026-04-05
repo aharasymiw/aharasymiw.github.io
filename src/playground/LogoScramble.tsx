@@ -18,7 +18,7 @@ export function LogoScramble({ text }: LogoScrambleProps) {
   const [display, setDisplay] = useState(text)
   const [scrambling, setScrambling] = useState(false)
   const clickCount = useRef(0)
-  const clickTimer = useRef<ReturnType<typeof setTimeout>>()
+  const clickTimer = useRef<ReturnType<typeof setTimeout>>(undefined)
 
   const handleClick = useCallback(() => {
     if (scrambling) return
