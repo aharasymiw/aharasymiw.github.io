@@ -1,0 +1,18 @@
+.section {
+  padding: var(--space-7) 0;
+}
+
+.calm {
+  border-left: 3px solid var(--color-accent-green);
+  padding-left: var(--space-5);
+}
+
+.warm {
+  border-left: 3px solid var(--color-accent-warm);
+  padding-left: var(--space-5);
+}
+
+.playful {
+  border-left: 3px solid var(--color-accent-playful);
+  padding-left: var(--space-5);
+}
