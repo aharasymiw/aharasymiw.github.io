@@ -1,0 +1,26 @@
+.wrapper {
+  position: relative;
+  display: inline;
+}
+
+.die {
+  position: absolute;
+  right: -28px;
+  top: -4px;
+  font-size: 20px;
+  animation: tumble 1s ease-in-out infinite;
+}
+
+@keyframes tumble {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(90deg); }
+  50% { transform: rotate(180deg); }
+  75% { transform: rotate(270deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .die {
+    animation: none;
+  }
+}
