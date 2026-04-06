@@ -320,3 +320,16 @@ The design system will be created in Stitch as a reusable design system, then sc
 - Component patterns
 
 This serves as the source of truth that bridges design and implementation.
+
+### Stitch IDs
+
+- **Project:** `projects/7194580884852749317` (title: "aharasymiw.com")
+- **Design System:** `assets/15838549104850180549` (name: "Aharasymiw Organic Flow")
+
+### Font Mapping (Spec → Stitch)
+
+| Spec Font | Stitch Font | Role |
+|-----------|-------------|------|
+| Gill Sans / Avenir Next | MANROPE | Headlines |
+| Georgia | LITERATA | Body |
+| system-ui | INTER | Labels / UI |
