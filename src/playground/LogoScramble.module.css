@@ -1,0 +1,24 @@
+.logo {
+  cursor: default;
+  display: inline-block;
+}
+
+.letter {
+  display: inline-block;
+  transition: transform 80ms ease;
+}
+
+.scrambling .letter {
+  animation: jitter 80ms ease infinite alternate;
+}
+
+@keyframes jitter {
+  from { transform: translateY(-1px) rotate(-2deg); }
+  to { transform: translateY(1px) rotate(2deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrambling .letter {
+    animation: none;
+  }
+}
