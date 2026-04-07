@@ -28,3 +28,6 @@ dist-ssr
 
 # Playwright MCP temp
 .playwright-mcp/
+
+# Local only
+ai_feedback/
