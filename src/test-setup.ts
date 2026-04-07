@@ -1,5 +1,17 @@
 import '@testing-library/jest-dom'
 
+// Mock IntersectionObserver for jsdom
+class MockIntersectionObserver {
+  observe = vi.fn()
+  unobserve = vi.fn()
+  disconnect = vi.fn()
+  constructor() {}
+}
+Object.defineProperty(window, 'IntersectionObserver', {
+  writable: true,
+  value: MockIntersectionObserver,
+})
+
 // Mock window.matchMedia for jsdom
 Object.defineProperty(window, 'matchMedia', {
   writable: true,

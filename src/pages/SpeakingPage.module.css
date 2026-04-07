@@ -1,0 +1,58 @@
+.talkGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-5);
+}
+
+@media (max-width: 768px) {
+  .talkGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.topicList {
+  list-style: disc;
+  padding-left: var(--space-5);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color: var(--color-text);
+  margin-top: var(--space-3);
+}
+
+.talkList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.talkEntry {
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-bg-subtle);
+}
+
+.talkEntry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.bookingSection {
+  text-align: center;
+}
+
+.topicGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  margin: var(--space-4) 0;
+}
+
+.topicTag {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-elevated);
+  color: var(--color-text);
+  border: 1px solid var(--color-bg-subtle);
+}
