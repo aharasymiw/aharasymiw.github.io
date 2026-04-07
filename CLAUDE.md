@@ -41,17 +41,21 @@ This project uses **Vite+** (`vp` CLI), a unified toolchain wrapping Vite, Rolld
 Three-layer component library with CSS custom properties (no CSS framework):
 
 **Tokens** (`src/tokens/`)
+
 - `tokens.css` — All CSS custom properties: colors (light/dark), typography, spacing (4px base), radii, transitions
 - `reset.css` — Minimal CSS reset
 - `global.css` — Base body styles, focus rings, selection, reduced-motion
 
 **Foundation** (`src/foundation/`) — Layout primitives
+
 - ThemeProvider (context + localStorage + system preference), Text, Heading, Stack, Container, VisuallyHidden, SkipLink
 
 **Components** (`src/components/`) — UI building blocks
+
 - Card, Section, Accordion, NavBar, HeroTagline, Button, Link, Footer
 
 **Playground** (`src/playground/`) — Easter eggs (all respect `prefers-reduced-motion`)
+
 - KonamiConfetti, LogoScramble, GravySnail, SunsetTransition, D20Tumble, PartyMode, FooterTaglines, EasterEgg, GlyphBackground, RevealOnScroll
 
 **Hooks** (`src/hooks/`) — useReducedMotion, useIdleTimer, useKonamiCode
