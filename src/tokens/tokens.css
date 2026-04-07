@@ -1,0 +1,58 @@
+:root {
+  /* Colors — Light Mode (Warm Earth) */
+  --color-bg: #faf9f6;
+  --color-bg-elevated: #f0ede8;
+  --color-bg-subtle: #e8e4df;
+  --color-text: #2c2c2c;
+  --color-text-muted: #6b6b6b;
+  --color-accent-green: #4a6741;
+  --color-accent-warm: #c17f59;
+  --color-accent-playful: #7c6fad;
+  --color-focus-ring: #7c6fad;
+
+  /* Typography */
+  --font-heading: "Gill Sans", "Avenir Next", "Avenir", sans-serif;
+  --font-body: Georgia, "Times New Roman", serif;
+  --font-ui: system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Type Scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.5rem;
+
+  /* Spacing (4px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Transitions */
+  --transition-gentle: 200ms ease;
+  --transition-reveal: 400ms ease-out;
+}
+
+[data-theme="dark"] {
+  --color-bg: #1a1a2e;
+  --color-bg-elevated: #222240;
+  --color-bg-subtle: #2a2a45;
+  --color-text: #f0ece2;
+  --color-text-muted: #b8b8c4;
+  --color-accent-green: #7c9a92;
+  --color-accent-warm: #f0c27a;
+  --color-accent-playful: #b89adb;
+  --color-focus-ring: #b89adb;
+}

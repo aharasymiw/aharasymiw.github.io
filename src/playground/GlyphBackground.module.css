@@ -1,0 +1,8 @@
+.glyph {
+  position: absolute;
+  font-family: var(--font-body);
+  font-size: 120px;
+  opacity: 0.05;
+  line-height: 1;
+  user-select: none;
+}

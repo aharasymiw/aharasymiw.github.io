@@ -1,0 +1,65 @@
+.hero {
+  padding: var(--space-8) 0 var(--space-7);
+  text-align: center;
+}
+
+.tagline {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.2;
+  letter-spacing: 0.3px;
+  margin-bottom: var(--space-7);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+@media (max-width: 767px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .tagline {
+    font-size: var(--text-2xl);
+  }
+}
+
+.card {
+  position: relative;
+  background: linear-gradient(135deg, var(--color-bg-elevated) 0%, var(--color-bg-subtle) 100%);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  text-align: left;
+  overflow: hidden;
+}
+
+.cardLabel {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: var(--space-2);
+}
+
+.labelGreen {
+  color: var(--color-accent-green);
+}
+.labelWarm {
+  color: var(--color-accent-warm);
+}
+.labelPlayful {
+  color: var(--color-accent-playful);
+}
+
+.cardContent {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  line-height: 1.6;
+}

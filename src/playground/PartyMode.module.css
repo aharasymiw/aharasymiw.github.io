@@ -1,0 +1,68 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  font-size: 20px;
+  transition: color var(--transition-gentle);
+  opacity: 0.4;
+}
+
+.toggle:hover {
+  opacity: 1;
+  color: var(--color-accent-playful);
+}
+
+.active {
+  opacity: 1;
+  color: var(--color-accent-playful);
+}
+
+:global([data-party="true"]) {
+  animation: partyBg 2s linear infinite;
+}
+
+:global([data-party="true"] *) {
+  animation: partyBounce 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes partyBg {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes partyBounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global([data-party="true"]) {
+    animation: partyBgReduced 4s linear infinite;
+  }
+  :global([data-party="true"] *) {
+    animation: none;
+  }
+  @keyframes partyBgReduced {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+}

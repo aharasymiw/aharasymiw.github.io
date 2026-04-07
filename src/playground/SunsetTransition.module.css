@@ -1,0 +1,34 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.sunset {
+  background: linear-gradient(180deg, #c17f59 0%, #7c6fad 50%, #1a1a2e 100%);
+  animation: wipe 300ms ease-out forwards;
+}
+
+.sunrise {
+  background: linear-gradient(180deg, #1a1a2e 0%, #7c6fad 50%, #faf9f6 100%);
+  animation: wipe 300ms ease-out forwards;
+}
+
+@keyframes wipe {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay {
+    display: none;
+  }
+}
