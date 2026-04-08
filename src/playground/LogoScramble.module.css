@@ -5,6 +5,7 @@
 
 .letter {
   display: inline-block;
+  white-space: pre;
   transition: transform 80ms ease;
 }
 

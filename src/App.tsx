@@ -46,7 +46,7 @@ function NotFound() {
           marginTop: "var(--space-4)",
         }}
       >
-        This page doesn't exist. Maybe Gravy ate it.
+        This page doesn't exist. 🐌🥬 Maybe Gravy ate it?
       </p>
       <RouterLink
         to="/"
