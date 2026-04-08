@@ -70,7 +70,7 @@ function AppLayout() {
   }, [location.pathname]);
 
   return (
-    <div id="app" className={styles.app}>
+    <div id="app-shell" className={styles.app}>
       <SkipLink />
       <NavBar
         links={NAV_LINKS}

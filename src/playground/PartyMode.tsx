@@ -13,7 +13,7 @@ export function PartyMode() {
 
   useEffect(() => {
     if (!active) {
-      const app = document.getElementById("app");
+      const app = document.getElementById("app-shell");
       if (app) {
         app.style.filter = "";
         app.style.transform = "";
@@ -21,7 +21,7 @@ export function PartyMode() {
       return;
     }
 
-    const app = document.getElementById("app");
+    const app = document.getElementById("app-shell");
     if (!app) return;
 
     const hueSpeed = reducedMotion ? 90 : 180;
