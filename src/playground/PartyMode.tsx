@@ -1,14 +1,55 @@
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { useReducedMotion } from "../hooks/useReducedMotion";
 import styles from "./PartyMode.module.css";
 
 export function PartyMode() {
   const [active, setActive] = useState(false);
+  const reducedMotion = useReducedMotion();
+  const rafRef = useRef<number>(0);
 
-  const toggle = () => {
-    const next = !active;
-    setActive(next);
-    document.getElementById("app")?.setAttribute("data-party", String(next));
-  };
+  const toggle = useCallback(() => {
+    setActive((prev) => !prev);
+  }, []);
+
+  useEffect(() => {
+    if (!active) {
+      const app = document.getElementById("app");
+      const main = document.getElementById("main");
+      if (app) app.style.filter = "";
+      if (main) main.style.transform = "";
+      return;
+    }
+
+    const app = document.getElementById("app");
+    const main = document.getElementById("main");
+    if (!app) return;
+
+    const hueSpeed = reducedMotion ? 90 : 180;
+    let start: number | null = null;
+
+    const animate = (timestamp: number) => {
+      if (start === null) start = timestamp;
+      const elapsed = (timestamp - start) / 1000;
+
+      const hue = (elapsed * hueSpeed) % 360;
+      app.style.filter = `hue-rotate(${hue}deg)`;
+
+      if (!reducedMotion && main) {
+        const bounce = Math.sin(elapsed * Math.PI * 2) * -2;
+        main.style.transform = `translateY(${bounce}px)`;
+      }
+
+      rafRef.current = requestAnimationFrame(animate);
+    };
+
+    rafRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      if (app) app.style.filter = "";
+      if (main) main.style.transform = "";
+    };
+  }, [active, reducedMotion]);
 
   return (
     <button

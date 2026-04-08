@@ -9,28 +9,21 @@ describe("PartyMode", () => {
     expect(screen.getByRole("button", { name: /party mode/i })).toBeInTheDocument();
   });
 
-  it("toggles party mode on click", async () => {
+  it("toggles aria-pressed on click", async () => {
     const user = userEvent.setup();
-    const app = document.createElement("div");
-    app.id = "app";
-    document.body.appendChild(app);
-    render(<PartyMode />, { container: app });
+    render(<PartyMode />);
     const btn = screen.getByRole("button", { name: /party mode/i });
+    expect(btn).toHaveAttribute("aria-pressed", "false");
     await user.click(btn);
-    expect(app.getAttribute("data-party")).toBe("true");
-    document.body.removeChild(app);
+    expect(btn).toHaveAttribute("aria-pressed", "true");
   });
 
-  it("toggles party mode off on second click", async () => {
+  it("toggles aria-pressed off on second click", async () => {
     const user = userEvent.setup();
-    const app = document.createElement("div");
-    app.id = "app";
-    document.body.appendChild(app);
-    render(<PartyMode />, { container: app });
+    render(<PartyMode />);
     const btn = screen.getByRole("button", { name: /party mode/i });
     await user.click(btn);
     await user.click(btn);
-    expect(app.getAttribute("data-party")).toBe("false");
-    document.body.removeChild(app);
+    expect(btn).toHaveAttribute("aria-pressed", "false");
   });
 });
