@@ -28,7 +28,7 @@
   animation: partyBg 2s linear infinite;
 }
 
-:global([data-party="true"] *) {
+:global([data-party="true"] > main) {
   animation: partyBounce 0.5s ease-in-out infinite alternate;
 }
 
@@ -54,7 +54,7 @@
   :global([data-party="true"]) {
     animation: partyBgReduced 4s linear infinite;
   }
-  :global([data-party="true"] *) {
+  :global([data-party="true"] > main) {
     animation: none;
   }
   @keyframes partyBgReduced {
