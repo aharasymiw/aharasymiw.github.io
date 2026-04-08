@@ -5,6 +5,10 @@ import { SkipLink } from "./foundation/SkipLink";
 import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
 import { KonamiConfetti } from "./playground/KonamiConfetti";
+import { SwipeKonami } from "./playground/SwipeKonami";
+import { FourCorners } from "./playground/FourCorners";
+import { SecretKnock } from "./playground/SecretKnock";
+import { SpiralDraw } from "./playground/SpiralDraw";
 import { GravySnail } from "./playground/GravySnail";
 import { PartyMode } from "./playground/PartyMode";
 import { FooterTaglines } from "./playground/FooterTaglines";
@@ -96,6 +100,10 @@ function AppLayout() {
         </div>
       </footer>
       <KonamiConfetti />
+      <SwipeKonami />
+      <FourCorners />
+      <SecretKnock />
+      <SpiralDraw />
       <GravySnail />
     </div>
   );

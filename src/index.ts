@@ -28,8 +28,17 @@ export { SunsetTransition } from "./playground/SunsetTransition";
 export { D20Tumble } from "./playground/D20Tumble";
 export { PartyMode } from "./playground/PartyMode";
 export { FooterTaglines } from "./playground/FooterTaglines";
+export { AchievementBanner } from "./playground/AchievementBanner";
+export { SwipeKonami } from "./playground/SwipeKonami";
+export { FourCorners } from "./playground/FourCorners";
+export { SecretKnock } from "./playground/SecretKnock";
+export { SpiralDraw } from "./playground/SpiralDraw";
 
 // Hooks
 export { useReducedMotion } from "./hooks/useReducedMotion";
 export { useIdleTimer } from "./hooks/useIdleTimer";
 export { useKonamiCode } from "./hooks/useKonamiCode";
+export { useSwipeCode } from "./hooks/useSwipeCode";
+export { useFourCorners } from "./hooks/useFourCorners";
+export { useSecretKnock } from "./hooks/useSecretKnock";
+export { useSpiralDraw } from "./hooks/useSpiralDraw";
