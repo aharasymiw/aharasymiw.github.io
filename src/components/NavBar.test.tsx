@@ -32,12 +32,10 @@ describe("NavBar", () => {
 
   it("renders navigation links", () => {
     renderNavBar();
-    const nav = screen.getByRole("navigation", { name: "Main" });
-    expect(nav).toBeInTheDocument();
-    const { getByText } = within(nav);
-    expect(getByText("Home")).toBeInTheDocument();
-    expect(getByText("Portfolio")).toBeInTheDocument();
-    expect(getByText("Speaking")).toBeInTheDocument();
+    const nav = within(screen.getByRole("navigation", { name: "Main" }));
+    expect(nav.getByText("Home")).toBeInTheDocument();
+    expect(nav.getByText("Portfolio")).toBeInTheDocument();
+    expect(nav.getByText("Speaking")).toBeInTheDocument();
   });
 
   it("marks current page with aria-current", () => {
