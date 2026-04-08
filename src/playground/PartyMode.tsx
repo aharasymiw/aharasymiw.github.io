@@ -7,7 +7,7 @@ export function PartyMode() {
   const toggle = () => {
     const next = !active;
     setActive(next);
-    document.documentElement.setAttribute("data-party", String(next));
+    document.getElementById("app")?.setAttribute("data-party", String(next));
   };
 
   return (

@@ -11,18 +11,26 @@ describe("PartyMode", () => {
 
   it("toggles party mode on click", async () => {
     const user = userEvent.setup();
-    render(<PartyMode />);
+    const app = document.createElement("div");
+    app.id = "app";
+    document.body.appendChild(app);
+    render(<PartyMode />, { container: app });
     const btn = screen.getByRole("button", { name: /party mode/i });
     await user.click(btn);
-    expect(document.documentElement.getAttribute("data-party")).toBe("true");
+    expect(app.getAttribute("data-party")).toBe("true");
+    document.body.removeChild(app);
   });
 
   it("toggles party mode off on second click", async () => {
     const user = userEvent.setup();
-    render(<PartyMode />);
+    const app = document.createElement("div");
+    app.id = "app";
+    document.body.appendChild(app);
+    render(<PartyMode />, { container: app });
     const btn = screen.getByRole("button", { name: /party mode/i });
     await user.click(btn);
     await user.click(btn);
-    expect(document.documentElement.getAttribute("data-party")).toBe("false");
+    expect(app.getAttribute("data-party")).toBe("false");
+    document.body.removeChild(app);
   });
 });
