@@ -1,8 +1,16 @@
-import { describe, it, expect } from "vite-plus/test";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vite-plus/test";
 import { render, screen, act } from "@testing-library/react";
 import { KonamiConfetti } from "./KonamiConfetti";
 
 describe("KonamiConfetti", () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
   it("does not render confetti before activation", () => {
     render(<KonamiConfetti />);
     expect(screen.queryByText("New Achievement!: 'Caught Red Handed'")).not.toBeInTheDocument();

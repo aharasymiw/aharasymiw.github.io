@@ -5,7 +5,7 @@ import { useKonamiCode } from "./useKonamiCode";
 describe("useKonamiCode", () => {
   it("returns false initially", () => {
     const { result } = renderHook(() => useKonamiCode());
-    expect(result.current).toBe(false);
+    expect(result.current[0]).toBe(false);
   });
 
   it("returns true after Konami sequence", () => {
@@ -27,6 +27,6 @@ describe("useKonamiCode", () => {
         window.dispatchEvent(new KeyboardEvent("keydown", { key }));
       });
     });
-    expect(result.current).toBe(true);
+    expect(result.current[0]).toBe(true);
   });
 });

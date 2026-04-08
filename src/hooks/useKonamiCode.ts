@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const KONAMI = [
   "ArrowUp",
@@ -13,11 +13,11 @@ const KONAMI = [
   "a",
 ];
 
-export function useKonamiCode(): boolean {
+export function useKonamiCode(): [boolean, () => void] {
   const [activated, setActivated] = useState(false);
+  const reset = useCallback(() => setActivated(false), []);
 
   useEffect(() => {
-    if (activated) return;
     const buffer: string[] = [];
 
     const handler = (e: KeyboardEvent) => {
@@ -25,12 +25,13 @@ export function useKonamiCode(): boolean {
       if (buffer.length > KONAMI.length) buffer.shift();
       if (buffer.length === KONAMI.length && buffer.every((k, i) => k === KONAMI[i])) {
         setActivated(true);
+        buffer.length = 0;
       }
     };
 
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [activated]);
+  }, []);
 
-  return activated;
+  return [activated, reset];
 }

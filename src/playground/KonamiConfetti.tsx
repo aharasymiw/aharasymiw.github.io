@@ -15,18 +15,22 @@ function generatePieces(count: number) {
 }
 
 export function KonamiConfetti() {
-  const activated = useKonamiCode();
+  const [activated, reset] = useKonamiCode();
   const [visible, setVisible] = useState(false);
-  const [pieces] = useState(() => generatePieces(50));
+  const [pieces, setPieces] = useState(() => generatePieces(50));
 
   useEffect(() => {
     if (!activated) return;
+    setPieces(generatePieces(50));
     setVisible(true);
-    const timer = setTimeout(() => setVisible(false), 3000);
+    const timer = setTimeout(() => {
+      setVisible(false);
+      reset();
+    }, 3000);
     return () => clearTimeout(timer);
-  }, [activated]);
+  }, [activated, reset]);
 
-  if (!activated) return null;
+  if (!visible) return null;
 
   return (
     <>
