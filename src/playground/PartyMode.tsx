@@ -14,14 +14,14 @@ export function PartyMode() {
   useEffect(() => {
     if (!active) {
       const app = document.getElementById("app");
-      const main = document.getElementById("main");
-      if (app) app.style.filter = "";
-      if (main) main.style.transform = "";
+      if (app) {
+        app.style.filter = "";
+        app.style.transform = "";
+      }
       return;
     }
 
     const app = document.getElementById("app");
-    const main = document.getElementById("main");
     if (!app) return;
 
     const hueSpeed = reducedMotion ? 90 : 180;
@@ -34,9 +34,9 @@ export function PartyMode() {
       const hue = (elapsed * hueSpeed) % 360;
       app.style.filter = `hue-rotate(${hue}deg)`;
 
-      if (!reducedMotion && main) {
+      if (!reducedMotion) {
         const bounce = Math.sin(elapsed * Math.PI * 2) * -2;
-        main.style.transform = `translateY(${bounce}px)`;
+        app.style.transform = `translateY(${bounce}px)`;
       }
 
       rafRef.current = requestAnimationFrame(animate);
@@ -46,8 +46,10 @@ export function PartyMode() {
 
     return () => {
       cancelAnimationFrame(rafRef.current);
-      if (app) app.style.filter = "";
-      if (main) main.style.transform = "";
+      if (app) {
+        app.style.filter = "";
+        app.style.transform = "";
+      }
     };
   }, [active, reducedMotion]);
 
