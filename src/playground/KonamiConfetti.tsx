@@ -51,17 +51,11 @@ export function KonamiConfetti() {
           ))}
         </div>
       )}
-      <div
-        aria-live="polite"
-        style={{
-          position: "absolute",
-          width: "1px",
-          height: "1px",
-          overflow: "hidden",
-          clip: "rect(0,0,0,0)",
-        }}
-      >
-        New Achievement!: 'Caught Red Handed'
+      <div className={styles.achievementBanner} aria-live="polite">
+        <div className={styles.achievementStars}>&#10024; &#127881; &#127882; &#10024;</div>
+        <div className={styles.achievementTitle}>&#127942; NEW ACHIEVEMENT! &#127942;</div>
+        <div className={styles.achievementName}>&lsquo;Caught Red Handed&rsquo;</div>
+        <div className={styles.achievementStars}>&#10024; &#127882; &#127881; &#10024;</div>
       </div>
     </>
   );

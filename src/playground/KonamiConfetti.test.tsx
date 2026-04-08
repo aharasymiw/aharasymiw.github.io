@@ -13,7 +13,7 @@ describe("KonamiConfetti", () => {
 
   it("does not render confetti before activation", () => {
     render(<KonamiConfetti />);
-    expect(screen.queryByText("New Achievement!: 'Caught Red Handed'")).not.toBeInTheDocument();
+    expect(screen.queryByText(/Caught Red Handed/)).not.toBeInTheDocument();
   });
 
   it("renders confetti and announcement after Konami code", () => {
@@ -35,6 +35,6 @@ describe("KonamiConfetti", () => {
         window.dispatchEvent(new KeyboardEvent("keydown", { key }));
       });
     });
-    expect(screen.getByText("New Achievement!: 'Caught Red Handed'")).toBeInTheDocument();
+    expect(screen.getByText(/Caught Red Handed/)).toBeInTheDocument();
   });
 });
