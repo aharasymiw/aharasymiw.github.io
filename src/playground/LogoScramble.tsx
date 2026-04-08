@@ -5,20 +5,21 @@ interface LogoScrambleProps {
   text: string;
 }
 
-function shuffleString(str: string): string {
-  const arr = str.split("");
-  for (let i = arr.length - 1; i > 0; i--) {
+function shuffleIndices(length: number): number[] {
+  const indices = Array.from({ length }, (_, i) => i);
+  for (let i = indices.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+    [indices[i], indices[j]] = [indices[j], indices[i]];
   }
-  return arr.join("");
+  return indices;
 }
 
 export function LogoScramble({ text }: LogoScrambleProps) {
-  const [display, setDisplay] = useState(text);
+  const [transforms, setTransforms] = useState<number[]>([]);
   const [scrambling, setScrambling] = useState(false);
   const clickCount = useRef(0);
   const clickTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const letterRefs = useRef<(HTMLSpanElement | null)[]>([]);
 
   const handleClick = useCallback(() => {
     if (scrambling) return;
@@ -28,12 +29,28 @@ export function LogoScramble({ text }: LogoScrambleProps) {
     if (clickCount.current >= 5) {
       clickCount.current = 0;
       setScrambling(true);
-      setDisplay(shuffleString(text));
 
+      const positions = letterRefs.current.map((el) => el?.offsetLeft ?? 0);
+      const shuffled = shuffleIndices(text.length);
+
+      // Calculate translateX delta for each letter: where it needs to go minus where it is
+      const deltas = text.split("").map((_, i) => {
+        const targetIndex = shuffled.indexOf(i);
+        return positions[targetIndex] - positions[i];
+      });
+
+      // Phase 1: Scramble
+      setTransforms(deltas);
+
+      // Phase 2: Hold, then unscramble
       setTimeout(() => {
-        setDisplay(text);
-        setScrambling(false);
-      }, 500);
+        setTransforms([]);
+
+        // Phase 3: Wait for unscramble animation, then unlock
+        setTimeout(() => {
+          setScrambling(false);
+        }, 400);
+      }, 1000);
     } else {
       clickTimer.current = setTimeout(() => {
         clickCount.current = 0;
@@ -42,12 +59,18 @@ export function LogoScramble({ text }: LogoScrambleProps) {
   }, [text, scrambling]);
 
   return (
-    <span
-      className={`${styles.logo}${scrambling ? ` ${styles.scrambling}` : ""}`}
-      onClick={handleClick}
-    >
-      {display.split("").map((char, i) => (
-        <span key={`${i}-${char}`} className={styles.letter}>
+    <span className={styles.logo} onClick={handleClick}>
+      {text.split("").map((char, i) => (
+        <span
+          key={`${i}-${char}`}
+          className={styles.letter}
+          ref={(el) => {
+            letterRefs.current[i] = el;
+          }}
+          style={
+            transforms[i] != null ? { transform: `translateX(${transforms[i]}px)` } : undefined
+          }
+        >
           {char}
         </span>
       ))}
