@@ -26,7 +26,8 @@ describe("NavBar", () => {
 
   it("renders site name", () => {
     renderNavBar();
-    expect(screen.getByText("Andrew Harasymiw")).toBeInTheDocument();
+    const header = screen.getByRole("banner");
+    expect(header).toHaveTextContent("Andrew Harasymiw");
   });
 
   it("renders navigation links", () => {
