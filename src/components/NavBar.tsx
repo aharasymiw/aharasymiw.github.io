@@ -1,5 +1,6 @@
 import { useState, useCallback, type ComponentType } from "react";
 import { useTheme } from "../foundation/ThemeProvider";
+import { LogoScramble } from "../playground/LogoScramble";
 import { SunsetTransition } from "../playground/SunsetTransition";
 import styles from "./NavBar.module.css";
 
@@ -36,7 +37,9 @@ export function NavBar({ links, currentPath, siteName, linkComponent: LinkComp }
 
   return (
     <header className={styles.navbar}>
-      <span className={styles.siteName}>{siteName}</span>
+      <span className={styles.siteName}>
+        <LogoScramble text={siteName} />
+      </span>
 
       <nav aria-label="Main">
         <ul className={styles.navLinks}>
