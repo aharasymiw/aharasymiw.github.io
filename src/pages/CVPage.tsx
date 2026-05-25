@@ -26,7 +26,7 @@ export function CVPage() {
       </Section>
 
       <Section>
-        <Heading level={2}>Work Experience</Heading>
+        <Heading level={2}>Key Work Experience</Heading>
         <div className={styles.timeline}>
           <RevealOnScroll>
             <Card

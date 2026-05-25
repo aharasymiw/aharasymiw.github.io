@@ -34,7 +34,7 @@ describe("CVPage", () => {
 
   it("renders work experience section", () => {
     renderPage();
-    expect(screen.getByText("Work Experience")).toBeInTheDocument();
+    expect(screen.getByText("Key Work Experience")).toBeInTheDocument();
   });
 
   it("renders all three employers", () => {
