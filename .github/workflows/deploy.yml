@@ -35,6 +35,9 @@ jobs:
       - name: Build
         run: vp build
 
+      - name: Create SPA 404 fallback
+        run: cp dist/index.html dist/404.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
