@@ -14,13 +14,36 @@ export function PortfolioPage() {
   return (
     <Container>
       <Section>
-        <Heading level={1}>Portfolio</Heading>
+        <Heading level={1}>Developer Advocate Portfolio</Heading>
         <Text>
           My career reflects a consistent thread: building systems that empower people. Whether
           writing production code, designing data pipelines, or teaching the next generation of
           developers, I focus on creating value through thoughtful engineering and clear
           communication.
         </Text>
+      </Section>
+
+      <Section id="developer-advocate-portfolio">
+        <Heading level={2}>Selected Recordings</Heading>
+        <Text>
+          A curated reel from my YouTube playlist of the same name. Conference mainstage, recorded
+          tutorials, community talks, and live problem-solving &mdash; the formats a Developer
+          Advocate inhabits, with audience-adaptive delivery and on-camera comfort.
+        </Text>
+        <div className={styles.videoGrid}>
+          {devAdvocateVideos.map((v, i) => (
+            <RevealOnScroll key={v.slug} delay={i * 80}>
+              <article id={`video-${v.slug}`} className={styles.videoCard}>
+                <YouTubeEmbed
+                  videoId={v.videoId}
+                  title={v.title}
+                  duration={v.duration}
+                  description={`${v.category} · ${v.description}`}
+                />
+              </article>
+            </RevealOnScroll>
+          ))}
+        </div>
       </Section>
 
       <Section>
@@ -118,29 +141,6 @@ export function PortfolioPage() {
               </Text>
             </Card>
           </RevealOnScroll>
-        </div>
-      </Section>
-
-      <Section id="developer-advocate-portfolio">
-        <Heading level={2}>Developer Advocate Portfolio</Heading>
-        <Text>
-          A curated reel from my YouTube playlist of the same name. Conference mainstage, recorded
-          tutorials, community talks, and live problem-solving &mdash; the formats a Developer
-          Advocate inhabits, with audience-adaptive delivery and on-camera comfort.
-        </Text>
-        <div className={styles.videoGrid}>
-          {devAdvocateVideos.map((v, i) => (
-            <RevealOnScroll key={v.slug} delay={i * 80}>
-              <article id={`video-${v.slug}`} className={styles.videoCard}>
-                <YouTubeEmbed
-                  videoId={v.videoId}
-                  title={v.title}
-                  duration={v.duration}
-                  description={`${v.category} · ${v.description}`}
-                />
-              </article>
-            </RevealOnScroll>
-          ))}
         </div>
       </Section>
 

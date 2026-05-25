@@ -74,7 +74,9 @@ describe("App routing", () => {
 
   it("renders portfolio at /portfolio", () => {
     render(<TestApp initialPath="/portfolio" />);
-    expect(screen.getByRole("heading", { name: "Portfolio" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Developer Advocate Portfolio" }),
+    ).toBeInTheDocument();
   });
 
   it("renders speaking page at /speaking", () => {

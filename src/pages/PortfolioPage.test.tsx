@@ -22,7 +22,9 @@ describe("PortfolioPage", () => {
 
   it("renders the page heading", () => {
     renderPage();
-    expect(screen.getByRole("heading", { name: "Portfolio" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Developer Advocate Portfolio" }),
+    ).toBeInTheDocument();
   });
 
   it("renders projects section", () => {
@@ -40,11 +42,9 @@ describe("PortfolioPage", () => {
     expect(screen.getByText("Leading Through Influence")).toBeInTheDocument();
   });
 
-  it("renders the Developer Advocate Portfolio section with all 7 videos", () => {
+  it("renders the Selected Recordings section with all 7 videos", () => {
     renderPage();
-    expect(
-      screen.getByRole("heading", { name: "Developer Advocate Portfolio" }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Selected Recordings" })).toBeInTheDocument();
     const expectedSlugs = [
       "passkeys",
       "api-keys",
