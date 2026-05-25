@@ -1,3 +1,4 @@
+import { Container } from "../foundation/Container";
 import styles from "./Footer.module.css";
 
 const contactLinks = [
@@ -13,18 +14,20 @@ export function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className={styles.footer}>
-      <ul className={styles.links}>
-        {contactLinks.map((link) => (
-          <li key={link.href}>
-            <a className={styles.link} href={link.href} target="_blank" rel="noopener noreferrer">
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <p className={styles.copyright}>
-        <span data-footer-year>{year}</span> Andrew Harasymiw
-      </p>
+      <Container>
+        <ul className={styles.links}>
+          {contactLinks.map((link) => (
+            <li key={link.href}>
+              <a className={styles.link} href={link.href} target="_blank" rel="noopener noreferrer">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p className={styles.copyright}>
+          <span data-footer-year>{year}</span> Andrew Harasymiw
+        </p>
+      </Container>
     </footer>
   );
 }

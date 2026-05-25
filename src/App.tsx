@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation, Link as RouterLink } from "react-router-dom";
 import { ThemeProvider } from "./foundation/ThemeProvider";
 import { SkipLink } from "./foundation/SkipLink";
+import { Container } from "./foundation/Container";
 import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
 import { KonamiConfetti } from "./playground/KonamiConfetti";
@@ -97,10 +98,10 @@ function AppLayout() {
       </main>
       <footer className={styles.footer}>
         <Footer />
-        <div className={styles.footerExtras}>
+        <Container className={styles.footerExtras}>
           <FooterTaglines year={new Date().getFullYear()} taglines={FOOTER_TAGLINES} />
           <PartyMode />
-        </div>
+        </Container>
       </footer>
       <KonamiConfetti />
       <SwipeKonami />

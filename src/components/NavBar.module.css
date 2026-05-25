@@ -1,8 +1,11 @@
 .navbar {
+  padding: var(--space-4) 0;
+}
+
+.navbarInner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-4) 0;
 }
 
 .siteName {
