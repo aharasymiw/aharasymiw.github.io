@@ -42,20 +42,34 @@ export function HomePage() {
         <Section zone="calm">
           <div className={styles.sectionWithGlyph}>
             <GlyphBackground glyph="A" top="-10px" right="-5px" />
-            <Heading level={2}>Hello! I'm Andrew.</Heading>
-            <Text>
-              I'm a seasoned software engineer and educator seeking developer advocate opportunities
-              where I can help others grow while learning new things and collaborating to tackle
-              difficult problems. With experience spanning bootcamp instruction, senior software
-              engineering, and community building, I bring a unique perspective to developer
-              relations.
-            </Text>
-            <Text>
-              My approach combines technical depth with genuine human connection. I've taught 500+
-              students from zero coding background to shipping full-stack applications. I've written
-              production code in Python, JavaScript, React, TypeScript, and Rust. I've given dozens
-              of public talks through Toastmasters and technical conferences.
-            </Text>
+            <div className={styles.helloLayout}>
+              <div className={styles.helloCopy}>
+                <Heading level={2}>Hello! I'm Andrew.</Heading>
+                <Text>
+                  I'm a seasoned software engineer and educator seeking developer advocate
+                  opportunities where I can help others grow while learning new things and
+                  collaborating to tackle difficult problems. With experience spanning bootcamp
+                  instruction, senior software engineering, and community building, I bring a unique
+                  perspective to developer relations.
+                </Text>
+                <Text>
+                  My approach combines technical depth with genuine human connection. I've taught
+                  500+ students from zero coding background to shipping full-stack applications.
+                  I've written production code in Python, JavaScript, React, TypeScript, and Rust.
+                  I've given dozens of public talks through Toastmasters and technical conferences.
+                </Text>
+              </div>
+              <div className={styles.avatarFrame}>
+                <img
+                  className={styles.avatar}
+                  src={`${import.meta.env.BASE_URL}andrew-avatar.png`}
+                  alt="Andrew Harasymiw"
+                  width={320}
+                  height={320}
+                  decoding="async"
+                />
+              </div>
+            </div>
           </div>
         </Section>
       </RevealOnScroll>

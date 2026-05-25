@@ -2,6 +2,113 @@
   position: relative;
 }
 
+.helloLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-7);
+  align-items: center;
+}
+
+.helloCopy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.avatarFrame {
+  --ring-thickness: 6px;
+  position: relative;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  padding: var(--ring-thickness);
+  transition: transform var(--transition-gentle);
+  justify-self: end;
+  isolation: isolate;
+}
+
+.avatarFrame::before,
+.avatarFrame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--color-accent-green),
+    var(--color-accent-warm),
+    var(--color-accent-playful),
+    var(--color-accent-green)
+  );
+  z-index: -1;
+}
+
+.avatarFrame::before {
+  animation: avatarRingSpin 18s linear infinite;
+}
+
+.avatarFrame::after {
+  inset: -14px;
+  filter: blur(18px);
+  opacity: 0;
+  transition: opacity var(--transition-gentle);
+  z-index: -2;
+}
+
+.avatarFrame:hover {
+  transform: scale(1.04) rotate(-2deg);
+}
+
+.avatarFrame:hover::after {
+  opacity: 0.55;
+}
+
+.avatar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--color-bg);
+  position: relative;
+}
+
+@keyframes avatarRingSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .helloLayout {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .avatarFrame {
+    width: 240px;
+    height: 240px;
+    justify-self: center;
+    order: -1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avatarFrame {
+    animation: none;
+    transition: none;
+  }
+  .avatarFrame:hover {
+    transform: none;
+  }
+  .avatarFrame::after {
+    transition: none;
+  }
+}
+
 .valueList {
   list-style: none;
   padding: 0;
