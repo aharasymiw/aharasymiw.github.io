@@ -39,4 +39,24 @@ describe("PortfolioPage", () => {
     expect(screen.getByText("Building Tools That Empower Others")).toBeInTheDocument();
     expect(screen.getByText("Leading Through Influence")).toBeInTheDocument();
   });
+
+  it("renders the Developer Advocate Portfolio section with all 7 videos", () => {
+    renderPage();
+    expect(
+      screen.getByRole("heading", { name: "Developer Advocate Portfolio" }),
+    ).toBeInTheDocument();
+    const expectedSlugs = [
+      "passkeys",
+      "api-keys",
+      "toastmasters",
+      "neon",
+      "mac",
+      "demo-forms",
+      "saga-garden",
+    ];
+    for (const slug of expectedSlugs) {
+      expect(document.getElementById(`video-${slug}`)).not.toBeNull();
+    }
+    expect(screen.getAllByRole("button", { name: /play video/i })).toHaveLength(7);
+  });
 });

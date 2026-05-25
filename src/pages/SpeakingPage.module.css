@@ -62,21 +62,3 @@
   font-family: var(--font-ui);
   font-size: var(--text-sm);
 }
-
-.videoGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: var(--space-6);
-  margin-top: var(--space-5);
-}
-
-@media (max-width: 768px) {
-  .videoGrid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.videoCard {
-  display: flex;
-  flex-direction: column;
-}

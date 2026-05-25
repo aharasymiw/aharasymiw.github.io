@@ -7,9 +7,7 @@ import { Card } from "../components/Card";
 import { Accordion, AccordionItem } from "../components/Accordion";
 import { Button } from "../components/Button";
 import { Link } from "../components/Link";
-import { YouTubeEmbed } from "../components/YouTubeEmbed";
 import { RevealOnScroll } from "../playground/RevealOnScroll";
-import { devAdvocateVideos } from "./data/devAdvocateVideos";
 import styles from "./SpeakingPage.module.css";
 
 export function SpeakingPage() {
@@ -51,7 +49,7 @@ export function SpeakingPage() {
                 <li>Migration paths for existing apps</li>
               </ul>
               <p className={styles.watchLink}>
-                <Link href="#video-passkeys">Watch the talk &rarr;</Link>
+                <Link href="/portfolio#video-passkeys">Watch the talk &rarr;</Link>
               </p>
             </Card>
           </RevealOnScroll>
@@ -93,29 +91,6 @@ export function SpeakingPage() {
               </Text>
             </Card>
           </RevealOnScroll>
-        </div>
-      </Section>
-
-      <Section id="developer-advocate-portfolio">
-        <Heading level={2}>Developer Advocate Portfolio</Heading>
-        <Text>
-          A curated reel from my YouTube playlist of the same name. Conference mainstage, recorded
-          tutorials, community talks, and live problem-solving &mdash; the formats a Developer
-          Advocate inhabits, with audience-adaptive delivery and on-camera comfort.
-        </Text>
-        <div className={styles.videoGrid}>
-          {devAdvocateVideos.map((v, i) => (
-            <RevealOnScroll key={v.slug} delay={i * 80}>
-              <article id={`video-${v.slug}`} className={styles.videoCard}>
-                <YouTubeEmbed
-                  videoId={v.videoId}
-                  title={v.title}
-                  duration={v.duration}
-                  description={`${v.category} · ${v.description}`}
-                />
-              </article>
-            </RevealOnScroll>
-          ))}
         </div>
       </Section>
 

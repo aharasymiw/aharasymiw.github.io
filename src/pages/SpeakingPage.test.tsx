@@ -28,7 +28,7 @@ describe("SpeakingPage", () => {
   it("renders featured presentations", () => {
     renderPage();
     expect(screen.getByText("Featured Presentations")).toBeInTheDocument();
-    expect(screen.getAllByText("From Passwords to Passkeys")).toHaveLength(2);
+    expect(screen.getByText("From Passwords to Passkeys")).toBeInTheDocument();
     expect(screen.getByText("The World is More Complex Than We Think")).toBeInTheDocument();
     expect(screen.getByText("Reflecting on My Path")).toBeInTheDocument();
   });
@@ -54,29 +54,9 @@ describe("SpeakingPage", () => {
     expect(screen.getByText("Authentication & Security")).toBeInTheDocument();
   });
 
-  it("renders the Developer Advocate Portfolio section with all 7 videos", () => {
-    renderPage();
-    expect(
-      screen.getByRole("heading", { name: "Developer Advocate Portfolio" }),
-    ).toBeInTheDocument();
-    const expectedSlugs = [
-      "passkeys",
-      "api-keys",
-      "toastmasters",
-      "neon",
-      "mac",
-      "demo-forms",
-      "saga-garden",
-    ];
-    for (const slug of expectedSlugs) {
-      expect(document.getElementById(`video-${slug}`)).not.toBeNull();
-    }
-    expect(screen.getAllByRole("button", { name: /play video/i })).toHaveLength(7);
-  });
-
-  it("links the Passkeys Featured card to the in-page video anchor", () => {
+  it("links the Passkeys Featured card to the Portfolio video anchor", () => {
     renderPage();
     const link = screen.getByRole("link", { name: /watch the talk/i });
-    expect(link).toHaveAttribute("href", "#video-passkeys");
+    expect(link).toHaveAttribute("href", "/portfolio#video-passkeys");
   });
 });

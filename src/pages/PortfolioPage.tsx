@@ -5,7 +5,9 @@ import { Section } from "../components/Section";
 import { Card } from "../components/Card";
 import { Accordion, AccordionItem } from "../components/Accordion";
 import { Link } from "../components/Link";
+import { YouTubeEmbed } from "../components/YouTubeEmbed";
 import { RevealOnScroll } from "../playground/RevealOnScroll";
+import { devAdvocateVideos } from "./data/devAdvocateVideos";
 import styles from "./PortfolioPage.module.css";
 
 export function PortfolioPage() {
@@ -116,6 +118,29 @@ export function PortfolioPage() {
               </Text>
             </Card>
           </RevealOnScroll>
+        </div>
+      </Section>
+
+      <Section id="developer-advocate-portfolio">
+        <Heading level={2}>Developer Advocate Portfolio</Heading>
+        <Text>
+          A curated reel from my YouTube playlist of the same name. Conference mainstage, recorded
+          tutorials, community talks, and live problem-solving &mdash; the formats a Developer
+          Advocate inhabits, with audience-adaptive delivery and on-camera comfort.
+        </Text>
+        <div className={styles.videoGrid}>
+          {devAdvocateVideos.map((v, i) => (
+            <RevealOnScroll key={v.slug} delay={i * 80}>
+              <article id={`video-${v.slug}`} className={styles.videoCard}>
+                <YouTubeEmbed
+                  videoId={v.videoId}
+                  title={v.title}
+                  duration={v.duration}
+                  description={`${v.category} · ${v.description}`}
+                />
+              </article>
+            </RevealOnScroll>
+          ))}
         </div>
       </Section>
 
