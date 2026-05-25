@@ -16,6 +16,7 @@ export { HeroTagline } from "./components/HeroTagline";
 export { Button } from "./components/Button";
 export { Link } from "./components/Link";
 export { Footer } from "./components/Footer";
+export { YouTubeEmbed } from "./components/YouTubeEmbed";
 
 // Playground
 export { EasterEgg } from "./playground/EasterEgg";
