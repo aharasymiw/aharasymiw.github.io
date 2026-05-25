@@ -25,18 +25,6 @@ describe("PortfolioPage", () => {
     expect(screen.getByRole("heading", { name: "Portfolio" })).toBeInTheDocument();
   });
 
-  it("renders work experience section", () => {
-    renderPage();
-    expect(screen.getByText("Work Experience")).toBeInTheDocument();
-  });
-
-  it("renders all three employers", () => {
-    renderPage();
-    expect(screen.getByText("Prime Digital Academy")).toBeInTheDocument();
-    expect(screen.getByText("Augeo Marketing")).toBeInTheDocument();
-    expect(screen.getByText("SPS Commerce")).toBeInTheDocument();
-  });
-
   it("renders projects section", () => {
     renderPage();
     expect(screen.getByText("Projects")).toBeInTheDocument();

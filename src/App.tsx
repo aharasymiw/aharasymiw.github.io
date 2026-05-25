@@ -16,6 +16,7 @@ import { HomePage } from "./pages/HomePage";
 import { PortfolioPage } from "./pages/PortfolioPage";
 import { SpeakingPage } from "./pages/SpeakingPage";
 import { CommunityPage } from "./pages/CommunityPage";
+import { CVPage } from "./pages/CVPage";
 import { ConnectPage } from "./pages/ConnectPage";
 import styles from "./App.module.css";
 
@@ -24,6 +25,7 @@ const NAV_LINKS = [
   { label: "Portfolio", href: "/portfolio" },
   { label: "Speaking", href: "/speaking" },
   { label: "Community", href: "/community" },
+  { label: "CV", href: "/cv" },
   { label: "Connect", href: "/connect" },
 ];
 
@@ -88,6 +90,7 @@ function AppLayout() {
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/speaking" element={<SpeakingPage />} />
           <Route path="/community" element={<CommunityPage />} />
+          <Route path="/cv" element={<CVPage />} />
           <Route path="/connect" element={<ConnectPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
