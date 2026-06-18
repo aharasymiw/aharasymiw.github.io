@@ -25,6 +25,7 @@ export { RevealOnScroll } from "./playground/RevealOnScroll";
 export { KonamiConfetti } from "./playground/KonamiConfetti";
 export { LogoScramble } from "./playground/LogoScramble";
 export { GravySnail } from "./playground/GravySnail";
+export { SpinningFavicon } from "./playground/SpinningFavicon";
 export { SunsetTransition } from "./playground/SunsetTransition";
 export { D20Tumble } from "./playground/D20Tumble";
 export { PartyMode } from "./playground/PartyMode";

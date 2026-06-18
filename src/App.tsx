@@ -11,6 +11,7 @@ import { FourCorners } from "./playground/FourCorners";
 import { SecretKnock } from "./playground/SecretKnock";
 import { SpiralDraw } from "./playground/SpiralDraw";
 import { GravySnail } from "./playground/GravySnail";
+import { SpinningFavicon } from "./playground/SpinningFavicon";
 import { PartyMode } from "./playground/PartyMode";
 import { FooterTaglines } from "./playground/FooterTaglines";
 import { HomePage } from "./pages/HomePage";
@@ -109,6 +110,7 @@ function AppLayout() {
       <SecretKnock />
       <SpiralDraw />
       <GravySnail />
+      <SpinningFavicon />
     </div>
   );
 }
