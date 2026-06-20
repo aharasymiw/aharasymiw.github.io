@@ -33,3 +33,29 @@ body {
   background-color: var(--color-accent-playful);
   color: var(--color-bg);
 }
+
+/* Party mode (easter egg): hue-rotate + gentle bounce on the whole app shell,
+   driven by CSS so the compositor animates it rather than a per-frame JS loop.
+   The reduced-motion rule above neutralizes it for motion-sensitive users. */
+@keyframes party-hue {
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes party-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+[data-party="on"] {
+  animation:
+    party-hue 2s linear infinite,
+    party-bounce 1s ease-in-out infinite;
+  will-change: filter, transform;
+}

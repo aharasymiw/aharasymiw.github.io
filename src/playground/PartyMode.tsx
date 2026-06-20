@@ -1,57 +1,26 @@
-import { useState, useEffect, useRef, useCallback } from "react";
-import { useReducedMotion } from "../hooks/useReducedMotion";
+import { useState, useEffect, useCallback } from "react";
 import styles from "./PartyMode.module.css";
 
 export function PartyMode() {
   const [active, setActive] = useState(false);
-  const reducedMotion = useReducedMotion();
-  const rafRef = useRef<number>(0);
 
   const toggle = useCallback(() => {
     setActive((prev) => !prev);
   }, []);
 
+  // Flag the app shell so a CSS keyframe animation owns the hue-rotate + bounce
+  // (the compositor animates it) instead of writing inline styles every rAF
+  // frame. The global prefers-reduced-motion rule neutralizes the animation for
+  // users who opt out of motion.
   useEffect(() => {
-    if (!active) {
-      const app = document.getElementById("app-shell");
-      if (app) {
-        app.style.filter = "";
-        app.style.transform = "";
-      }
-      return;
-    }
-
+    if (!active) return;
     const app = document.getElementById("app-shell");
     if (!app) return;
-
-    const hueSpeed = reducedMotion ? 90 : 180;
-    let start: number | null = null;
-
-    const animate = (timestamp: number) => {
-      if (start === null) start = timestamp;
-      const elapsed = (timestamp - start) / 1000;
-
-      const hue = (elapsed * hueSpeed) % 360;
-      app.style.filter = `hue-rotate(${hue}deg)`;
-
-      if (!reducedMotion) {
-        const bounce = Math.sin(elapsed * Math.PI * 2) * -2;
-        app.style.transform = `translateY(${bounce}px)`;
-      }
-
-      rafRef.current = requestAnimationFrame(animate);
-    };
-
-    rafRef.current = requestAnimationFrame(animate);
-
+    app.dataset.party = "on";
     return () => {
-      cancelAnimationFrame(rafRef.current);
-      if (app) {
-        app.style.filter = "";
-        app.style.transform = "";
-      }
+      delete app.dataset.party;
     };
-  }, [active, reducedMotion]);
+  }, [active]);
 
   return (
     <button

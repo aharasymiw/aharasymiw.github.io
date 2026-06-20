@@ -19,7 +19,6 @@ export { Footer } from "./components/Footer";
 export { YouTubeEmbed } from "./components/YouTubeEmbed";
 
 // Playground
-export { EasterEgg } from "./playground/EasterEgg";
 export { GlyphBackground } from "./playground/GlyphBackground";
 export { RevealOnScroll } from "./playground/RevealOnScroll";
 export { KonamiConfetti } from "./playground/KonamiConfetti";

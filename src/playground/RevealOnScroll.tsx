@@ -14,6 +14,13 @@ export function RevealOnScroll({ children, delay = 0 }: RevealOnScrollProps) {
     const el = ref.current;
     if (!el) return;
 
+    // Fallback: if IntersectionObserver is unavailable, reveal immediately so
+    // content is never trapped at opacity 0.
+    if (typeof IntersectionObserver === "undefined") {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

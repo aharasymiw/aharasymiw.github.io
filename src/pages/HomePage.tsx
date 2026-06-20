@@ -62,11 +62,12 @@ export function HomePage() {
               <div className={styles.avatarFrame}>
                 <img
                   className={styles.avatar}
-                  src={`${import.meta.env.BASE_URL}andrew-avatar.png`}
+                  src={`${import.meta.env.BASE_URL}andrew-avatar.jpg`}
                   alt="Andrew Harasymiw"
                   width={320}
                   height={320}
                   decoding="async"
+                  fetchPriority="high"
                 />
               </div>
             </div>

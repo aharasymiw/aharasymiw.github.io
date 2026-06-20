@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, useLocation, Link as RouterLink } from "react-router-dom";
 import { ThemeProvider } from "./foundation/ThemeProvider";
 import { SkipLink } from "./foundation/SkipLink";
@@ -15,12 +15,23 @@ import { SpinningFavicon } from "./playground/SpinningFavicon";
 import { PartyMode } from "./playground/PartyMode";
 import { FooterTaglines } from "./playground/FooterTaglines";
 import { HomePage } from "./pages/HomePage";
-import { PortfolioPage } from "./pages/PortfolioPage";
-import { SpeakingPage } from "./pages/SpeakingPage";
-import { CommunityPage } from "./pages/CommunityPage";
-import { CVPage } from "./pages/CVPage";
-import { ConnectPage } from "./pages/ConnectPage";
 import styles from "./App.module.css";
+
+// Home is eager (it's the landing route and LCP path); the rest are code-split
+// so a first visit to "/" doesn't download every other page's JS up front.
+const PortfolioPage = lazy(() =>
+  import("./pages/PortfolioPage").then((m) => ({ default: m.PortfolioPage })),
+);
+const SpeakingPage = lazy(() =>
+  import("./pages/SpeakingPage").then((m) => ({ default: m.SpeakingPage })),
+);
+const CommunityPage = lazy(() =>
+  import("./pages/CommunityPage").then((m) => ({ default: m.CommunityPage })),
+);
+const CVPage = lazy(() => import("./pages/CVPage").then((m) => ({ default: m.CVPage })));
+const ConnectPage = lazy(() =>
+  import("./pages/ConnectPage").then((m) => ({ default: m.ConnectPage })),
+);
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -74,8 +85,28 @@ function NotFound() {
 function AppLayout() {
   const location = useLocation();
   useEffect(() => {
+    // When the URL carries a hash (e.g. /portfolio#video-passkeys), scroll to
+    // that element instead of the top. The target may live in a lazily-loaded
+    // route that hasn't rendered yet, so poll briefly until it appears.
+    if (location.hash) {
+      const id = location.hash.slice(1);
+      let frame = 0;
+      const start = performance.now();
+      const scrollToTarget = () => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView();
+          return;
+        }
+        if (performance.now() - start < 3000) {
+          frame = requestAnimationFrame(scrollToTarget);
+        }
+      };
+      scrollToTarget();
+      return () => cancelAnimationFrame(frame);
+    }
     window.scrollTo(0, 0);
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   return (
     <div id="app-shell" className={styles.app}>
@@ -86,24 +117,26 @@ function AppLayout() {
         siteName="Andrew Harasymiw"
         linkComponent={RouterLink}
       />
-      <main id="main" className={styles.main}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/speaking" element={<SpeakingPage />} />
-          <Route path="/community" element={<CommunityPage />} />
-          <Route path="/cv" element={<CVPage />} />
-          <Route path="/connect" element={<ConnectPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+      <main id="main" tabIndex={-1} className={styles.main}>
+        <Suspense fallback={null}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/speaking" element={<SpeakingPage />} />
+            <Route path="/community" element={<CommunityPage />} />
+            <Route path="/cv" element={<CVPage />} />
+            <Route path="/connect" element={<ConnectPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </main>
-      <footer className={styles.footer}>
+      <div className={styles.footer}>
         <Footer />
         <Container className={styles.footerExtras}>
           <FooterTaglines year={new Date().getFullYear()} taglines={FOOTER_TAGLINES} />
           <PartyMode />
         </Container>
-      </footer>
+      </div>
       <KonamiConfetti />
       <SwipeKonami />
       <FourCorners />

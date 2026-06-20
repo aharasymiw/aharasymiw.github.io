@@ -9,6 +9,14 @@
   --color-accent-warm: #c17f59;
   --color-accent-playful: #7c6fad;
   --color-focus-ring: #7c6fad;
+  /* Text/icon color for use on top of the warm accent fill. Dark enough to
+     pass WCAG AA on both the light (#c17f59) and dark (#f0c27a) warm shades. */
+  --color-on-accent: #1a1a2e;
+  /* Accent label colors tuned for AA contrast on the elevated card gradient.
+     Light mode needs darker warm/playful; dark mode reuses the accents (they
+     already pass on the dark card). */
+  --color-label-warm: #8f5836;
+  --color-label-playful: #5b4f8c;
 
   /* Typography */
   --font-heading: "Gill Sans", "Avenir Next", "Avenir", sans-serif;
@@ -55,4 +63,6 @@
   --color-accent-warm: #f0c27a;
   --color-accent-playful: #b89adb;
   --color-focus-ring: #b89adb;
+  --color-label-warm: var(--color-accent-warm);
+  --color-label-playful: var(--color-accent-playful);
 }

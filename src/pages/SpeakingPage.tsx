@@ -101,7 +101,7 @@ export function SpeakingPage() {
             <AccordionItem title="Professional Development">
               <div className={styles.talkList}>
                 <div className={styles.talkEntry}>
-                  <Heading level={4} size="base">
+                  <Heading level={3} size="base">
                     When to Say Yes! &mdash; The Art of Taking on New Projects
                   </Heading>
                   <Text variant="muted">2022</Text>
@@ -110,7 +110,7 @@ export function SpeakingPage() {
                   </Text>
                 </div>
                 <div className={styles.talkEntry}>
-                  <Heading level={4} size="base">
+                  <Heading level={3} size="base">
                     I Want a Good, Clean Fight &mdash; How to Disagree Professionally
                   </Heading>
                   <Text variant="muted">2022</Text>
@@ -120,7 +120,7 @@ export function SpeakingPage() {
                   </Text>
                 </div>
                 <div className={styles.talkEntry}>
-                  <Heading level={4} size="base">
+                  <Heading level={3} size="base">
                     Bootstrapping Remote Leadership
                   </Heading>
                   <Text variant="muted">2023</Text>
@@ -135,7 +135,7 @@ export function SpeakingPage() {
             <AccordionItem title="Technical Deep Dives">
               <div className={styles.talkList}>
                 <div className={styles.talkEntry}>
-                  <Heading level={4} size="base">
+                  <Heading level={3} size="base">
                     The Life-Changing Magic of Bubbling Up
                   </Heading>
                   <Text variant="muted">2021</Text>
@@ -144,14 +144,14 @@ export function SpeakingPage() {
                   </Text>
                 </div>
                 <div className={styles.talkEntry}>
-                  <Heading level={4} size="base">
+                  <Heading level={3} size="base">
                     Digital Safety Practices
                   </Heading>
                   <Text variant="muted">2023</Text>
                   <Text>Practical security guidance for developers and non-technical users.</Text>
                 </div>
                 <div className={styles.talkEntry}>
-                  <Heading level={4} size="base">
+                  <Heading level={3} size="base">
                     Artisans of Code
                   </Heading>
                   <Text variant="muted">2023</Text>
@@ -165,21 +165,21 @@ export function SpeakingPage() {
             <AccordionItem title="Community & Culture">
               <div className={styles.talkList}>
                 <div className={styles.talkEntry}>
-                  <Heading level={4} size="base">
+                  <Heading level={3} size="base">
                     What I Do: Describing the Role of a Software Engineer
                   </Heading>
                   <Text variant="muted">2022</Text>
                   <Text>Demystifying software engineering for non-technical audiences.</Text>
                 </div>
                 <div className={styles.talkEntry}>
-                  <Heading level={4} size="base">
+                  <Heading level={3} size="base">
                     Zoom 2.0 &mdash; Best Practices, Tips, and Tricks
                   </Heading>
                   <Text variant="muted">2021</Text>
                   <Text>Practical guidance for effective remote communication.</Text>
                 </div>
                 <div className={styles.talkEntry}>
-                  <Heading level={4} size="base">
+                  <Heading level={3} size="base">
                     Early Lessons in Leadership
                   </Heading>
                   <Text variant="muted">2021</Text>

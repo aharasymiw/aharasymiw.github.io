@@ -51,10 +51,10 @@
   color: var(--color-accent-green);
 }
 .labelWarm {
-  color: var(--color-accent-warm);
+  color: var(--color-label-warm);
 }
 .labelPlayful {
-  color: var(--color-accent-playful);
+  color: var(--color-label-playful);
 }
 
 .cardContent {

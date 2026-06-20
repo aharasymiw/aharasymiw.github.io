@@ -16,6 +16,7 @@ export function FooterTaglines({ year, taglines }: FooterTaglinesProps) {
     <span>
       <button
         onClick={handleClick}
+        aria-label="Reveal a footer tagline"
         style={{
           background: "none",
           border: "none",
@@ -27,9 +28,9 @@ export function FooterTaglines({ year, taglines }: FooterTaglinesProps) {
       >
         {year}
       </button>
-      {index >= 0 && (
-        <span style={{ marginLeft: "8px", fontStyle: "italic" }}>{taglines[index]}</span>
-      )}
+      <span aria-live="polite" style={{ marginLeft: index >= 0 ? "8px" : 0, fontStyle: "italic" }}>
+        {index >= 0 ? taglines[index] : ""}
+      </span>
     </span>
   );
 }

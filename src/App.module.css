@@ -8,6 +8,12 @@
   flex: 1;
 }
 
+/* main is focusable (tabIndex={-1}) only as the skip-link target; it should not
+   show a focus ring when focused programmatically. */
+.main:focus {
+  outline: none;
+}
+
 .footer {
   margin-top: auto;
 }
