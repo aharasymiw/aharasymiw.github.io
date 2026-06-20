@@ -7,7 +7,8 @@ import { useReducedMotion } from "../hooks/useReducedMotion";
 // the whole <link rel="icon"> element (rather than mutate its href) because that
 // is the pattern most likely to be picked up across browsers. Respects
 // prefers-reduced-motion via the hook; when reduced, we leave the static SVG
-// favicon (public/favicon.svg) in place.
+// favicon (public/favicon.svg) in place. The redraw loop also pauses while the
+// tab is hidden so it does no work (PNG encode + DOM swap) in background tabs.
 //
 // Reliability note: this animates in Chrome and Firefox. Safari has long been
 // inconsistent about honouring JS-driven favicon changes, so it may keep showing
@@ -65,11 +66,29 @@ export function SpinningFavicon() {
       angle = (angle + DEGREES_PER_FRAME) % 360;
     };
 
-    draw();
-    const id = window.setInterval(draw, 1000 / FPS);
+    let id = 0;
+    const startSpinning = () => {
+      if (id) return;
+      draw();
+      id = window.setInterval(draw, 1000 / FPS);
+    };
+    const stopSpinning = () => {
+      if (!id) return;
+      window.clearInterval(id);
+      id = 0;
+    };
+    // Don't burn CPU/battery redrawing a favicon nobody can see.
+    const handleVisibility = () => {
+      if (document.hidden) stopSpinning();
+      else startSpinning();
+    };
+
+    if (!document.hidden) startSpinning();
+    document.addEventListener("visibilitychange", handleVisibility);
 
     return () => {
-      window.clearInterval(id);
+      document.removeEventListener("visibilitychange", handleVisibility);
+      stopSpinning();
       removeIconLinks();
       if (originalHref) addIconLink(originalHref, originalType);
     };

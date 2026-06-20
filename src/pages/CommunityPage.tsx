@@ -136,7 +136,7 @@ export function CommunityPage() {
                 created a DM pipeline from players to experienced game masters, and built an engaged
                 community.
               </Text>
-              <Heading level={4} size="sm">
+              <Heading level={3} size="sm">
                 Community Lessons
               </Heading>
               <ul className={styles.lessonList}>

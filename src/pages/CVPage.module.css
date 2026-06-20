@@ -26,7 +26,7 @@
   font-size: var(--text-sm);
   font-weight: 500;
   background-color: var(--color-accent-warm);
-  color: #fff;
+  color: var(--color-on-accent);
   border: 2px solid var(--color-accent-warm);
   border-radius: var(--radius-md);
   text-decoration: none;

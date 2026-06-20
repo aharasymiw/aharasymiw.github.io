@@ -13,11 +13,14 @@ export function useIdleTimer(timeout: number): boolean {
     };
 
     const events = ["mousemove", "mousedown", "keydown", "touchstart", "scroll"];
-    events.forEach((e) => window.addEventListener(e, handleActivity));
+    // These listeners never call preventDefault, so mark them passive to let the
+    // browser scroll/touch without waiting on them.
+    const options: AddEventListenerOptions = { passive: true };
+    events.forEach((e) => window.addEventListener(e, handleActivity, options));
 
     return () => {
       clearTimeout(timer);
-      events.forEach((e) => window.removeEventListener(e, handleActivity));
+      events.forEach((e) => window.removeEventListener(e, handleActivity, options));
     };
   }, [timeout]);
 

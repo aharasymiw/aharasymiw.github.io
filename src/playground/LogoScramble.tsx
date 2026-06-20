@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import styles from "./LogoScramble.module.css";
 
 interface LogoScrambleProps {
@@ -19,7 +19,19 @@ export function LogoScramble({ text }: LogoScrambleProps) {
   const [scrambling, setScrambling] = useState(false);
   const clickCount = useRef(0);
   const clickTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const phaseTimer1 = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const phaseTimer2 = useRef<ReturnType<typeof setTimeout>>(undefined);
   const letterRefs = useRef<(HTMLSpanElement | null)[]>([]);
+
+  // Clear any in-flight timers if the logo unmounts mid-scramble.
+  useEffect(
+    () => () => {
+      clearTimeout(clickTimer.current);
+      clearTimeout(phaseTimer1.current);
+      clearTimeout(phaseTimer2.current);
+    },
+    [],
+  );
 
   const handleClick = useCallback(() => {
     if (scrambling) return;
@@ -43,11 +55,11 @@ export function LogoScramble({ text }: LogoScrambleProps) {
       setTransforms(deltas);
 
       // Phase 2: Hold, then unscramble
-      setTimeout(() => {
+      phaseTimer1.current = setTimeout(() => {
         setTransforms([]);
 
         // Phase 3: Wait for unscramble animation, then unlock
-        setTimeout(() => {
+        phaseTimer2.current = setTimeout(() => {
           setScrambling(false);
         }, 400);
       }, 1000);

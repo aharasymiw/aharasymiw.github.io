@@ -127,7 +127,10 @@ export function NavBar({ links, currentPath, siteName, linkComponent: LinkComp }
         onClick={() => setMobileOpen(false)}
         aria-hidden="true"
       />
-      <div className={`${styles.mobileMenu}${mobileOpen ? ` ${styles.mobileMenuOpen}` : ""}`}>
+      <div
+        className={`${styles.mobileMenu}${mobileOpen ? ` ${styles.mobileMenuOpen}` : ""}`}
+        inert={!mobileOpen}
+      >
         <button
           className={styles.hamburger}
           onClick={() => setMobileOpen(false)}

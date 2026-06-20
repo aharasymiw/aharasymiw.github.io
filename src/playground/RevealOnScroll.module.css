@@ -15,7 +15,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /* When motion is suppressed, content must never be gated behind the reveal
+     animation — show it in place rather than at opacity 0. */
   .hidden {
+    opacity: 1;
     transform: none;
   }
   .reveal {
