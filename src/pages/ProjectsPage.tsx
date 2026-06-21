@@ -21,24 +21,21 @@ export function ProjectsPage() {
         <div className={styles.projectGrid}>
           <RevealOnScroll>
             <Card
-              glyph="*"
               header={
                 <Heading level={3} size="lg">
-                  Darkhold
+                  Less Lately
                 </Heading>
               }
-              footer={<span className={styles.statusBadge}>Private alpha</span>}
             >
-              <Text>
-                A project built around the Shadowdark RPG. It's in private alpha right now, so
-                there's no public link yet.
-              </Text>
+              <Text>A side project of mine, out in the world and live to visit.</Text>
+              <Link href="https://www.lesslately.com" external>
+                lesslately.com
+              </Link>
             </Card>
           </RevealOnScroll>
 
           <RevealOnScroll delay={100}>
             <Card
-              glyph="+"
               header={
                 <Heading level={3} size="lg">
                   meet.aharasymiw.com
@@ -54,17 +51,17 @@ export function ProjectsPage() {
 
           <RevealOnScroll delay={200}>
             <Card
-              glyph="~"
               header={
                 <Heading level={3} size="lg">
-                  Less Lately
+                  Darkhold
                 </Heading>
               }
+              footer={<span className={styles.statusBadge}>Private alpha</span>}
             >
-              <Text>A side project of mine, out in the world and live to visit.</Text>
-              <Link href="https://www.lesslately.com" external>
-                lesslately.com
-              </Link>
+              <Text>
+                A project built around the Shadowdark RPG. It's in private alpha right now, so
+                there's no public link yet.
+              </Text>
             </Card>
           </RevealOnScroll>
         </div>

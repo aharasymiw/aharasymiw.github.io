@@ -41,7 +41,6 @@ export function ConnectPage() {
           <Heading level={2}>Get in Touch</Heading>
           <div className={styles.contactGrid}>
             <Card
-              glyph="@"
               header={
                 <Heading level={3} size="base">
                   Email
@@ -54,7 +53,7 @@ export function ConnectPage() {
             <Card
               header={
                 <Heading level={3} size="base">
-                  Meet
+                  Book a video call
                 </Heading>
               }
             >
