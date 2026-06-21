@@ -22,6 +22,9 @@ import styles from "./App.module.css";
 const PortfolioPage = lazy(() =>
   import("./pages/PortfolioPage").then((m) => ({ default: m.PortfolioPage })),
 );
+const ProjectsPage = lazy(() =>
+  import("./pages/ProjectsPage").then((m) => ({ default: m.ProjectsPage })),
+);
 const SpeakingPage = lazy(() =>
   import("./pages/SpeakingPage").then((m) => ({ default: m.SpeakingPage })),
 );
@@ -36,6 +39,7 @@ const ConnectPage = lazy(() =>
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Portfolio", href: "/portfolio" },
+  { label: "Projects", href: "/projects" },
   { label: "Speaking", href: "/speaking" },
   { label: "Community", href: "/community" },
   { label: "CV", href: "/cv" },
@@ -122,6 +126,7 @@ function AppLayout() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/speaking" element={<SpeakingPage />} />
             <Route path="/community" element={<CommunityPage />} />
             <Route path="/cv" element={<CVPage />} />

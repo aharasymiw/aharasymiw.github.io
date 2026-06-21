@@ -35,6 +35,7 @@ describe("ConnectPage", () => {
     renderPage();
     expect(screen.getByText("Get in Touch")).toBeInTheDocument();
     expect(screen.getByText("aharasymiw@gmail.com")).toBeInTheDocument();
+    expect(screen.getByText("meet.aharasymiw.com")).toBeInTheDocument();
     expect(screen.getByText("github.com/aharasymiw")).toBeInTheDocument();
     expect(screen.getByText("linkedin.com/in/aharasymiw")).toBeInTheDocument();
   });

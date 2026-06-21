@@ -54,6 +54,18 @@ export function ConnectPage() {
             <Card
               header={
                 <Heading level={3} size="base">
+                  Meet
+                </Heading>
+              }
+            >
+              <Link href="https://meet.aharasymiw.com" external>
+                meet.aharasymiw.com
+              </Link>
+            </Card>
+
+            <Card
+              header={
+                <Heading level={3} size="base">
                   GitHub
                 </Heading>
               }
