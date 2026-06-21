@@ -41,7 +41,6 @@ export function ConnectPage() {
           <Heading level={2}>Get in Touch</Heading>
           <div className={styles.contactGrid}>
             <Card
-              glyph="@"
               header={
                 <Heading level={3} size="base">
                   Email
@@ -49,6 +48,18 @@ export function ConnectPage() {
               }
             >
               <Link href="mailto:aharasymiw@gmail.com">aharasymiw@gmail.com</Link>
+            </Card>
+
+            <Card
+              header={
+                <Heading level={3} size="base">
+                  Book a video call
+                </Heading>
+              }
+            >
+              <Link href="https://meet.aharasymiw.com" external>
+                meet.aharasymiw.com
+              </Link>
             </Card>
 
             <Card

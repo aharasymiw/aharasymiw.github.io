@@ -63,7 +63,7 @@ Three-layer component library with CSS custom properties (no CSS framework):
 
 ### Routing
 
-React Router v7 (`react-router-dom`). 5 pages: Home (`/`), Portfolio (`/portfolio`), Speaking (`/speaking`), Community (`/community`), Connect (`/connect`). 404 fallback.
+React Router v7 (`react-router-dom`). 7 pages: Home (`/`), Portfolio (`/portfolio`), Projects (`/projects`), Speaking (`/speaking`), Community (`/community`), CV (`/cv`), Connect (`/connect`). 404 fallback.
 
 ### Entry point flow
 
