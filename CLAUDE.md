@@ -56,9 +56,10 @@ Three-layer component library with CSS custom properties (no CSS framework):
 
 **Playground** (`src/playground/`) — Easter eggs (all respect `prefers-reduced-motion`)
 
-- KonamiConfetti, LogoScramble, GravySnail, SunsetTransition, D20Tumble, PartyMode, FooterTaglines, EasterEgg, GlyphBackground, RevealOnScroll
+- KonamiConfetti, SwipeKonami, FourCorners, SecretKnock, SpiralDraw, GravySnail, SpinningFavicon, PartyMode, FooterTaglines, LogoScramble, D20Tumble, SunsetTransition, GlyphBackground, RevealOnScroll, AchievementBanner
+- Adding an egg: write a trigger hook in `src/hooks/` returning `[activated, reset]`, then a thin component that either reuses `AchievementBanner` (shared confetti + aria-live banner) or renders its own effect. Handle reduced motion via a CSS `@media (prefers-reduced-motion)` block or the `useReducedMotion` hook. Mount it in `App.tsx` and export from `src/index.ts`. (There is no base/wrapper component — each egg stands alone on the shared hooks.)
 
-**Hooks** (`src/hooks/`) — useReducedMotion, useIdleTimer, useKonamiCode
+**Hooks** (`src/hooks/`) — useReducedMotion, useIdleTimer, useKonamiCode, useFourCorners, useSecretKnock, useSpiralDraw, useSwipeCode
 
 ### Routing
 
