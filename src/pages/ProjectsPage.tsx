@@ -42,7 +42,7 @@ export function ProjectsPage() {
                 </Heading>
               }
             >
-              <Text>The easiest way to book time with me. Launching soon.</Text>
+              <Text>The easiest way to book time with me &mdash; live and ready.</Text>
               <Link href="https://meet.aharasymiw.com" external>
                 meet.aharasymiw.com
               </Link>
