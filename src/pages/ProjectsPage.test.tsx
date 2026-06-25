@@ -38,7 +38,7 @@ describe("ProjectsPage", () => {
     expect(screen.queryByRole("link", { name: /darkhold/i })).toBeNull();
   });
 
-  it("links to meet.aharasymiw.com optimistically", () => {
+  it("links to meet.aharasymiw.com", () => {
     renderPage();
     const meet = screen.getByRole("link", { name: /meet\.aharasymiw\.com/i });
     expect(meet).toHaveAttribute("href", "https://meet.aharasymiw.com");
